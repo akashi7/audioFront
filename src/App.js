@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import { Dashboard } from './Pages/Dashboard';
+import { HomePage } from './Pages/Home';
+import { SplashScreen } from './Pages/SplashScreen';
+import { UserProvider } from './Context/UserContext';
+import { ViewSong } from './Pages/ViewSong';
+import { AboutPage } from './Pages/AboutPage';
+import { Profile } from './Pages/Profile';
+import { Admindash } from './Pages/Admindash';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <UserProvider>
+          <Route path="/" component={SplashScreen} exact />
+          <Route path="/home" component={HomePage} exact />
+          <Route path="/dashboard" component={Dashboard} exact />
+          <Route path="/playsong/:id" component={ViewSong} exact />
+          <Route path="/about" component={AboutPage} exact />
+          <Route path="/profile" component={Profile} exact />
+          <Route path="/admin" component={Admindash} exact />
+        </UserProvider>
+      </Switch>
+    </Router>
   );
 }
 

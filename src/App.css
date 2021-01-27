@@ -1,38 +1,323 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mobileView {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.splash {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  background-color: #173e43;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+.splashText {
+  text-align: center;
+  color: black;
+}
+.logo {
+  justify-content: center;
+  width: 50px;
+  border-radius: 5px;
+}
+.homePage {
+  background-image: url('./Images/Beautiful-Norway.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+form {
+  color: white;
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+form {
+  text-align: center;
+  padding: 10px;
+}
+
+.errors {
+  width: 100%;
+  padding: 7px;
+  background-color: red;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+form input {
+  color: white;
+  letter-spacing: 1px;
+  border: none;
+  border-bottom: 1px solid #999;
+  display: block;
+  width: 95%;
+  padding: 15px;
+  background: none;
+  font-size: 15px;
+  margin: 5px;
+  text-overflow: ellipsis;
+}
+form input:focus {
+  outline: none;
+}
+form input::placeholder {
+  color: white;
+}
+form button {
+  margin-top: 5px;
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 5px;
+}
+.forms {
+  padding: 10px;
+}
+.playlogo {
+  width: 20px;
+}
+.mobileView {
+  width: 100%;
+}
+.mobFooter {
+  background-color: white;
+  color: black;
+  padding: 7px;
+  font-size: 14px;
+  flex-shrink: 0;
+  height: fit-content;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 1rem;
+  list-style-type: none;
+}
+.nav-links li {
+  padding: 2px 5px;
+}
+.mobFooter ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.mobFooter ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobileView {
+  height: 88.8vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('./Images/7ec111864f7539dce5362ccf235b61a4--app-logo-app-icon-logo.jpg');
+}
+.all-music {
+  height: 400px;
+  margin: 20px;
+  padding: 7px;
+  overflow-y: scroll;
+}
+.content {
+  flex: 1 0 auto;
+}
+.songs {
+  color: white;
+  display: flex;
+  border-radius: 10px;
+  font-size: 14px;
+  justify-content: space-around;
+  background-color: #173e43;
+  padding: 5px;
+  margin: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.time {
+  margin: 10px;
+}
+.dur {
+  margin-left: 180px;
+}
+
+.controls {
+  margin-top: 10px;
+  padding: 10px;
+}
+.progressBar {
+  margin: 10px;
+  width: 80%;
+  background-color: yellow;
+}
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 3px 3px 10px #888;
+}
+.playbutton {
+  width: 35px;
+}
+.controls {
+  align-items: center;
+  text-align: center;
+}
+.playSong {
+  background-image: url('./Images/wall.jpg');
+  height: 81vh;
+}
+.controlss {
+  margin-top: 199.9px;
+}
+.songplaying {
+  text-align: center;
+  color: white;
+}
+.social {
+  width: 25px;
+  margin: 10px;
+}
+.me {
+  margin-top: 10px;
+  width: 80px;
+  border-radius: 60px;
+}
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+}
+.ab {
+  height: 81vh;
+}
+.follow {
+  background-color: white;
+  color: black;
+  padding: 7px;
+  font-size: 14px;
+}
+.follow ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.follow ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aui {
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+}
+.foo {
+  font-weight: bolder;
+}
+.propro {
+  padding: 10px;
+}
+.icon {
+  width: 150px;
+}
+.viewAcc {
+  text-align: center;
+  height: 80vh;
+}
+.M-whole {
+  background-image: url('./Images/wall.jpg');
+  height: 93.9vh;
+}
+.M-allSo {
+  text-align: center;
+  color: whitesmoke;
+  display: flex;
+  margin: 20px;
+  height: 300px;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.M-songs {
+  justify-content: space-around;
+  margin: 10px;
+  padding: 7px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.Mfooter {
+  position: relative;
+  text-align: center;
+  padding: 7px;
+  bottom: 0;
+  color: black;
+  background-color: white;
+}
+.Mlogo {
+  width: 180px;
+}
+.Mplay {
+  margin-top: 21px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  width: fit-content;
+  margin-left: 490px;
+}
+.Mplaying {
+  text-align: center;
+}
+.Mss {
+  margin-top: -190px;
+}
+.Micons {
+  width: 170px;
+}
+.sce {
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+.Mty {
+  background-image: url('./Images/wall.jpg');
+  height: 93.9vh;
+}
+.back:hover {
+  cursor: pointer;
+}
+.songPlaying ul li:hover {
+  cursor: pointer;
+}
+.abi {
+  height: 93vh;
+  color: black;
+}
+.bbb p:hover {
+  cursor: pointer;
+  color: gold;
+}
+@media only screen and (min-width: 480px) {
+  form {
+    color: white;
+    border: 1px solid black;
+    margin: 10px;
+    width: 40%;
+    padding: 5px;
+    margin-left: 350px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
   }
-  to {
-    transform: rotate(360deg);
+  form p:hover {
+    cursor: pointer;
   }
 }
