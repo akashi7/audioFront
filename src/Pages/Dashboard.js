@@ -6,6 +6,10 @@ import { UserContext } from '../Context/UserContext';
 
 export const Dashboard = () => {
 
+  let url;
+
+  process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
+
   const { songList, viewAllSongs } = useContext(UserContext);
 
 
@@ -47,7 +51,7 @@ export const Dashboard = () => {
       }
     };
 
-    const res = await (await fetch(`https://audiolive.herokuapp.com/user/viewSong?songId=${id}`, config)).json();
+    const res = await (await fetch(`${url}/user/viewSong?songId=${id}`, config)).json();
 
     if (res.status === 200) {
       localStorage.setItem('songId', id);

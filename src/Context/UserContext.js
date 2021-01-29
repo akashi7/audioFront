@@ -24,6 +24,10 @@ export const UserContext = createContext(initialState);
 
 export const UserProvider = ({ children }) => {
 
+  let url;
+
+  process.env.NODE_ENV === 'development' ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
+
   const history = useHistory();
 
   const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -35,7 +39,7 @@ export const UserProvider = ({ children }) => {
         Authorization: `Bearer ${token}`
       },
     };
-    const res = await (await fetch(`https://audiolive.herokuapp.com/user/allSongs`, config)).json();
+    const res = await (await fetch(`${url}/user/allSongs`, config)).json();
     if (res.status === 200) {
       dispatch({
         type: 'SONG_LISTS',
@@ -55,7 +59,7 @@ export const UserProvider = ({ children }) => {
         Authorization: `Bearer ${token}`
       },
     };
-    const res = await (await fetch(`https://audiolive.herokuapp.com/user/viewSong?songId=${songId}`, config)).json();
+    const res = await (await fetch(`${url}/user/viewSong?songId=${songId}`, config)).json();
     if (res.status === 200) {
       dispatch({
         type: 'VIEW_SONG',
@@ -76,7 +80,7 @@ export const UserProvider = ({ children }) => {
         Authorization: `Bearer ${token}`
       },
     };
-    const res = await (await fetch(`https://audiolive.herokuapp.com/user/viewProfile`, config)).json();
+    const res = await (await fetch(`${url}/user/viewProfile`, config)).json();
     if (res.status === 200) {
       dispatch({
         type: 'PROFILE',
@@ -95,7 +99,7 @@ export const UserProvider = ({ children }) => {
         Authorization: `Bearer ${token}`
       },
     };
-    const res = await (await fetch(`https://audiolive.herokuapp.com/admin/all`, config)).json();
+    const res = await (await fetch(`${url}/admin/all`, config)).json();
     if (res.status === 200) {
       dispatch({
         type: 'ALL',

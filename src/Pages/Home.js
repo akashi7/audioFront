@@ -3,6 +3,10 @@ import { useHistory } from 'react-router-dom';
 
 
 export const HomePage = () => {
+
+  let url;
+
+  process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
   const history = useHistory();
 
 
@@ -25,7 +29,7 @@ export const HomePage = () => {
       },
       body: JSON.stringify(state)
     };
-    const res = await (await fetch(`https://audiolive.herokuapp.com/auth/signUp`, config)).json();
+    const res = await (await fetch(`${url}/auth/signUp`, config)).json();
     if (res.status === 200) {
       localStorage.setItem('token', res.token);
       localStorage.setItem('username', res.username);
@@ -58,7 +62,7 @@ export const HomePage = () => {
       body: JSON.stringify(state)
     };
 
-    const res = await (await fetch(`https://audiolive.herokuapp.com/auth/Login`, config)).json();
+    const res = await (await fetch(`${url}/auth/Login`, config)).json();
     if (res.status === 200) {
       localStorage.setItem('token', res.token);
       localStorage.setItem('username', res.username);

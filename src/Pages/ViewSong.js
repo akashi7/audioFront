@@ -35,7 +35,6 @@ export const ViewSong = () => {
         setState({ ...state, viewSize: 'machine' });
         document.title = "Song";
         await viewSong(token, songId);
-        console.log('size', state.viewSize);
       }
     })();
   }, []);
@@ -88,7 +87,6 @@ export const ViewSong = () => {
               </div>
             </div>
             <MobileFooter />
-
           </>
         )}
     </>

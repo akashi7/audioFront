@@ -44,7 +44,7 @@ export const AboutPage = () => {
                 Not fancy but cool in some way
                 </p>
                 <p className="foo">About Developer</p>
-                <p>Name is Akashi</p>
+                <p> Akashi</p>
                 <img src={me} alt="me" className="me" />
               </div>
               <div className="follow">
