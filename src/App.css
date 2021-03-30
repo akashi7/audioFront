@@ -5,6 +5,35 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+.searchSongs {
+  background-color: yellow;
+  padding: 7px;
+  margin: 5px;
+}
+.sesong {
+  background-color: red;
+}
+.searchForm {
+  display: flex;
+  flex-direction: row;
+}
+.searchFormM {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 70px;
+}
+.searchFormM input {
+  font-size: 13px;
+}
+.msea {
+  padding: 10px;
+  height: 90vh;
+  background-image: url('./Images/7ec111864f7539dce5362ccf235b61a4--app-logo-app-icon-logo.jpg');
+}
+.search {
+  width: 20%;
+}
 .mobileView {
   height: 100%;
   display: flex;
@@ -135,13 +164,12 @@ form button {
 }
 .songs {
   color: white;
-  display: flex;
   border-radius: 10px;
   font-size: 14px;
-  justify-content: space-around;
   background-color: #173e43;
   padding: 5px;
   margin: 5px;
+  width: fit-content;
 }
 
 .time {
@@ -236,44 +264,99 @@ form button {
   height: 80vh;
 }
 .M-whole {
-  background-image: url('./Images/wall.jpg');
-  height: 93.9vh;
+  background-color: rgb(34, 31, 31);
+  height: 100vh;
+}
+.plm {
+  margin: 10px;
+  display: grid;
+  grid-template-areas: 'left right';
+}
+.not {
+  height: 95vh;
+  color: whitesmoke;
+  background-color: rgb(34, 31, 31);
+}
+.Mplay {
+  grid-area: 'left';
+  text-align: center;
+  padding: 10px;
+  border: 2px solid darkgoldenrod;
+  background-image: url('./Images/7ec111864f7539dce5362ccf235b61a4--app-logo-app-icon-logo.jpg');
+  border-radius: 10px;
+  height: 550px;
+}
+
+.MachineHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 3px 3px 10px #888;
+  background-color: darkgoldenrod;
 }
 .M-allSo {
+  display: flex;
   text-align: center;
   color: whitesmoke;
   display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
   margin: 20px;
-  height: 300px;
-  flex-direction: column;
   overflow-y: auto;
 }
-.M-songs {
-  justify-content: space-around;
-  margin: 10px;
-  padding: 7px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.8);
+.M-allSos {
+  display: flex;
+  text-align: center;
+  color: whitesmoke;
+  padding: 10px;
+  margin: 20px;
+  overflow-y: auto;
 }
+.mmm {
+  flex-direction: column;
+  margin: 2px;
+}
+.mmm ul li {
+  list-style-type: none;
+}
+.wse {
+  background-color: rgb(34, 31, 31);
+  height: 100vh;
+}
+.M-songs {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: darkgoldenrod;
+  color: darkolivegreen;
+}
+.M-song {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: darkgoldenrod;
+  color: darkolivegreen;
+}
+.M-song ul {
+  list-style-type: none;
+}
+.M-songs ul {
+  list-style-type: none;
+}
+
 .Mfooter {
   position: relative;
   text-align: center;
   padding: 7px;
   bottom: 0;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: darkgoldenrod;
 }
 .Mlogo {
-  width: 180px;
+  width: 190px;
+  height: 190px;
 }
-.Mplay {
-  margin-top: 21px;
-  text-align: center;
-  background-color: white;
-  padding: 10px;
-  width: fit-content;
-  margin-left: 490px;
-}
+
 .Mplaying {
   text-align: center;
 }
@@ -289,8 +372,8 @@ form button {
   text-align: center;
 }
 .Mty {
-  background-image: url('./Images/wall.jpg');
-  height: 93.9vh;
+  background-color: rgb(34, 31, 31);
+  height: 95vh;
 }
 .back:hover {
   cursor: pointer;
@@ -298,6 +381,7 @@ form button {
 .songPlaying ul li:hover {
   cursor: pointer;
 }
+
 .abi {
   height: 93vh;
   color: black;
@@ -306,6 +390,7 @@ form button {
   cursor: pointer;
   color: gold;
 }
+
 @media only screen and (min-width: 480px) {
   form {
     color: white;

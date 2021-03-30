@@ -4,7 +4,7 @@ import { UserContext } from '../Context/UserContext';
 import { MobileFooter, MachineFooter, MobileHeader, MachineHeader } from '../Components/MobileFooter';
 import { PlaySong } from '../Components/PlaySong';
 
-import music from '../Images/music.png';
+import music from '../Images/7ec111864f7539dce5362ccf235b61a4--app-logo-app-icon-logo.jpg';
 
 export const ViewSong = () => {
 
@@ -37,7 +37,7 @@ export const ViewSong = () => {
         await viewSong(token, songId);
       }
     })();
-  }, []);
+  }, [view]);
 
 
 
@@ -50,45 +50,50 @@ export const ViewSong = () => {
         <>
           <div className="M-whole">
             <MachineHeader />
-            <div className="Mplay">
-              <img src={music} className="Mlogo" alt="music" />
-            </div>
-            <div className="Mplaying">
-              {song.songName.map(id => {
-                return (
-                  <div key={id.id} className="M-songs"  >
-                    <p>Song : {id.songName}</p>
-                    <p>By : {id.sangBy} </p>
-                    <div className="Mss">
-                      <PlaySong url={id.audioUrl} />
-                    </div>
-
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          <MachineFooter />
-        </>
-      ) : (
-          <>
-            <MobileHeader songName={state.newSong} />
-            <div className="playSong" >
-              <div>
+            <div className="plm">
+              <div className="Mplay">
+                <img
+                  src={music}
+                  className="Mlogo"
+                  alt="music" />
+              </div>
+              <div className="Mplaying">
                 {song.songName.map(id => {
                   return (
-                    <div key={id.id} className="songplaying"  >
-                      <p>Song playing : {id.songName}</p>
-                      <p>Artist : {id.sangBy} </p>
-                      <PlaySong url={id.audioUrl} />
+                    <div key={id.id} className="M-songs"  >
+                      <p>Song : {id.songName}</p>
+                      <p>By : {id.sangBy} </p>
+                      <div className="Mss">
+                        <PlaySong url={id.audioUrl} />
+                      </div>
+
                     </div>
                   );
                 })}
               </div>
             </div>
-            <MobileFooter />
-          </>
-        )}
+
+          </div>
+        </>
+      ) : (
+        <>
+          <MobileHeader songName={state.newSong} />
+          <div className="playSong" >
+            <div>
+              {song.songName.map(id => {
+                return (
+                  <div key={id.id} className="songplaying"  >
+                    <p>Song playing : {id.songName}</p>
+                    <p>Artist : {id.sangBy} </p>
+                    <PlaySong url={id.audioUrl} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <MobileFooter />
+        </>
+      )}
     </>
   );
 };

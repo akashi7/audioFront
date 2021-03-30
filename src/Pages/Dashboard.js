@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { MobileFooter, MachineFooter, MachineHeader } from '../Components/MobileFooter';
 import { UserContext } from '../Context/UserContext';
 
+import logo from '../Images/7ec111864f7539dce5362ccf235b61a4--app-logo-app-icon-logo.jpg';
+
 
 export const Dashboard = () => {
 
@@ -19,7 +21,13 @@ export const Dashboard = () => {
   const view = window.screen.width;
 
   const [state, setState] = useState({
-    viewSize: ''
+    viewSize: '',
+    songName: '',
+    songLists: {
+      songs: []
+    },
+    showSongs: false
+
   });
 
 
@@ -37,7 +45,6 @@ export const Dashboard = () => {
       else {
         document.title = "Dashboard";
         await viewAllSongs(token);
-
       }
     })();
   }, []);
@@ -59,11 +66,14 @@ export const Dashboard = () => {
       history.push(`/playsong/${res.songName}`);
     }
     else if (res.status === 401) {
+      localStorage.clear();
       history.push('/');
     }
 
 
   };
+
+
 
 
   return (
@@ -77,6 +87,7 @@ export const Dashboard = () => {
                   : songList.songs.map(id => {
                     return (
                       <div key={id.id} className="songs" onClick={(i) => playSong(id.id)}  >
+                        <img src={logo} alt="logo" width="90" height="110" />
                         <p>Song : {id.songName}</p>
                         <p>Artist : {id.sangBy} </p>
                       </div>
@@ -97,14 +108,17 @@ export const Dashboard = () => {
                 {songList.songs.length === 0 ? <p>No songs</p>
                   : songList.songs.map(id => {
                     return (
-                      <div key={id.id} className="M-songs" onClick={(i) => playSong(id.id)}  >
-                        <p>Song : {id.songName}</p>
-                        <p>By : {id.sangBy} </p>
+                      <div key={id.id} className="M-songs" onClick={(i) => playSong(id.id)}>
+                        <ul >
+                          <li><img src={logo} alt="logo" width="190" height="150" /></li>
+                          <li>Song : {id.songName} </li>
+                          <li>By : {id.sangBy}</li>
+                        </ul>
                       </div>
+
                     );
                   })}
               </div>
-
             </div>
             <MachineFooter />
           </>

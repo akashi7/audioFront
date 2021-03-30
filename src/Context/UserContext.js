@@ -47,6 +47,7 @@ export const UserProvider = ({ children }) => {
       });
     }
     else if (res.status === 401) {
+      localStorage.clear();
       history.push('/');
     }
 
@@ -68,6 +69,7 @@ export const UserProvider = ({ children }) => {
     }
 
     else if (res.status === 401) {
+      localStorage.clear();
       history.push('/');
     }
 
@@ -88,6 +90,7 @@ export const UserProvider = ({ children }) => {
       });
     }
     else if (res.status === 401) {
+      localStorage.clear();
       history.push('/');
     }
   };
@@ -107,6 +110,7 @@ export const UserProvider = ({ children }) => {
       });
     }
     else if (res.status === 401) {
+      localStorage.clear();
       history.push('/');
     }
   };

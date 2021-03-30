@@ -11,7 +11,6 @@ export const PlaySong = ({ url }) => {
 
   const durationFunction = (sec) => {
     return (sec - (sec %= 60)) / 60 + (9 < sec ? ':' : ':0') + ~~sec;
-
   };
 
   const [state, setState] = useState({
@@ -49,11 +48,13 @@ export const PlaySong = ({ url }) => {
   return (
     <div className='controlss'>
 
-      <audio ref={audio}
+      <audio
+        ref={audio}
         src={url}
         onCanPlay={e => setState({ ...state, duration: e.target.duration })}
         onTimeUpdate={e => setState({ ...state, currentTime: e.target.currentTime })} />
-      <input type="range"
+      <input
+        type="range"
         className="progressBar"
         onChange={handleProgess}
         value={(state.currentTime * 100) / state.duration} />
@@ -62,8 +63,16 @@ export const PlaySong = ({ url }) => {
       <div className="controls">
 
         {
-          state.playing ? <img src={pauseButton} className="playbutton" alt="play music" onClick={() => { setState({ ...state, playing: false }); toggle(); }} />
-            : <img src={playButton} className="playbutton" alt="play music" onClick={() => { setState({ ...state, playing: true }); toggle(); }} />
+          state.playing ? <img
+            src={pauseButton}
+            className="playbutton"
+            alt="play music"
+            onClick={() => { setState({ ...state, playing: false }); toggle(); }} />
+            : <img
+              src={playButton}
+              className="playbutton"
+              alt="play music"
+              onClick={() => { setState({ ...state, playing: true }); toggle(); }} />
         }
 
       </div>

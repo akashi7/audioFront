@@ -8,6 +8,9 @@ import { ViewSong } from './Pages/ViewSong';
 import { AboutPage } from './Pages/AboutPage';
 import { Profile } from './Pages/Profile';
 import { Admindash } from './Pages/Admindash';
+import { NotFound } from './Pages/NotFound';
+import { SearchSongs } from './Pages/SearchSongs';
+
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
           <Route path="/about" component={AboutPage} exact />
           <Route path="/profile" component={Profile} exact />
           <Route path="/admin" component={Admindash} exact />
+          <Route path="/notFound" component={NotFound} exact />
+          <Route path="/search" component={SearchSongs} exact />
         </UserProvider>
       </Switch>
     </Router>

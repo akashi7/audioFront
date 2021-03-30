@@ -4,6 +4,7 @@ import Home from '../Images/home.png';
 
 import about from '../Images/about_2.png';
 import logOut from '../Images/logout.png';
+import search from '../Images/search.png';
 
 
 export const MobileFooter = () => {
@@ -33,9 +34,9 @@ export const MobileFooter = () => {
             onClick={() => history.push('/profile')} />
           Account</li>
         <li
-          onClick={() => history.push('/about')}>
-          <img src={about} className="playlogo" alt="log out" />
-          About</li>
+          onClick={() => history.push('/search')}>
+          <img src={search} className="playlogo" alt="search" />
+          Search</li>
         <li onClick={logingOut}>
           <img src={logOut} className="playlogo" alt="playlist" />
           Log Out</li>
@@ -61,15 +62,15 @@ export const MachineHeader = () => {
     history.push('/');
   };
   return (
-    <div className="mobileHeader" style={{ color: "white" }}>
+    <div className="MachineHeader" style={{ color: "white" }}>
       <div className="back" onClick={dashBoard}>
-        Home
+        AkashicAudio
       </div>
       <div className="songPlaying">
         <ul className="nav-links">
-          <li onClick={() => history.push('/profile')}>Profile</li>
-          <li onClick={() => history.push('/about')}>About</li>
-          <li onClick={logingOut}>Log Out</li>
+          <li onClick={() => history.push('/search')}><img src={search} alt="search" width='30' /></li>
+          <li onClick={() => history.push('/profile')}><img src={userLogo} alt="profile" width='30' /></li>
+          <li onClick={logingOut}><img src={logOut} alt="log out" width='30' /></li>
         </ul>
       </div>
     </div>

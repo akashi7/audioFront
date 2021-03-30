@@ -77,8 +77,6 @@ export const Profile = () => {
                   );
                 })}
               </div>
-
-
             </div>
             <MachineFooter />
           </>

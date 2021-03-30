@@ -98,14 +98,20 @@ export const HomePage = () => {
             </div>
               : <p style={{ color: 'blueviolet' }}>Sign Up</p>}
 
-            <input placeholder="Username" type="text"
+            <input
+              placeholder="Username"
+              type="text"
               required
               onChange={e => setState({ ...state, username: e.target.value })}
             />
-            <input placeholder="Password" type="password"
+            <input
+              placeholder="Password"
+              type="password"
               required
               onChange={e => setState({ ...state, password: e.target.value })} />
-            <input placeholder="Confirm password" type="password"
+            <input
+              placeholder="Confirm password"
+              type="password"
               required
               onChange={e => setState({ ...state, confirmPassword: e.target.value })}
             />
@@ -120,11 +126,15 @@ export const HomePage = () => {
               </div>
                 : <p style={{ color: 'blueviolet' }}>Sign In</p>}
 
-              <input placeholder="Username" type="text"
+              <input
+                placeholder="Username"
+                type="text"
                 onChange={e => setState({ ...state, username: e.target.value })}
                 required
               />
-              <input placeholder="Password" type="password"
+              <input
+                placeholder="Password"
+                type="password"
                 required
                 onChange={e => setState({ ...state, password: e.target.value })}
               />
