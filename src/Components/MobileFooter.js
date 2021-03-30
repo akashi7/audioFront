@@ -64,7 +64,7 @@ export const MachineHeader = () => {
   return (
     <div className="MachineHeader" style={{ color: "white" }}>
       <div className="back" onClick={dashBoard}>
-        AkashicAudio
+        AkashiAudio
       </div>
       <div className="songPlaying">
         <ul className="nav-links">
