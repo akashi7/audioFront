@@ -115,8 +115,8 @@ export const HomePage = () => {
               required
               onChange={e => setState({ ...state, confirmPassword: e.target.value })}
             />
-            {state.isLoading ? <button type="submit">Loading.....</button>
-              : <button type="submit">Sign Up</button>}
+            {state.isLoading ? <button type="submit" className="bt" >Loading.....</button>
+              : <button className="bt" type="submit">Sign Up</button>}
             <p >have account?</p>
             <p onClick={() => setState({ ...state, isSignForm: false })} style={{ color: 'blueviolet' }}>Sign In</p>
           </form>
@@ -138,8 +138,8 @@ export const HomePage = () => {
                 required
                 onChange={e => setState({ ...state, password: e.target.value })}
               />
-              {state.isLoading ? <button type="submit">Loading.....</button>
-                : <button type="submit">Log In</button>}
+              {state.isLoading ? <button type="submit" className="bt" >Loading.....</button>
+                : <button className="bt" type="submit">Log In</button>}
 
               <p >Do not have account?</p>
               <p onClick={() => setState({ ...state, isSignForm: true })} style={{ color: 'blueviolet' }}>Sign Up</p>

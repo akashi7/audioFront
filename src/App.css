@@ -64,6 +64,11 @@
   height: 100vh;
   width: 100%;
 }
+.bt {
+  margin-left: 0px;
+  margin-top: 16px;
+  width: 88%;
+}
 form {
   color: white;
   border: 1px solid black;
@@ -265,7 +270,7 @@ form button {
 }
 .M-whole {
   background-color: rgb(34, 31, 31);
-  height: 100vh;
+  height: 100%;
 }
 .plm {
   margin: 10px;
