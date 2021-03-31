@@ -48,7 +48,7 @@ export const ViewSong = () => {
     <>
       {state.viewSize === 'machine' ? (
         <>
-          <div className="M-whole">
+          <div className="M-wholes">
             <MachineHeader />
             <div className="plm">
               <div className="Mplay">
@@ -56,18 +56,6 @@ export const ViewSong = () => {
                   src={music}
                   className="Mlogo"
                   alt="music" />
-                {song.songName.map(id => {
-                  return (
-                    <div key={id.id} className="M-songs"  >
-                      <p>Song : {id.songName}</p>
-                      <p>By : {id.sangBy} </p>
-                      <p>By : {id.genre} </p>
-                      <div className="Mss">
-                        <PlaySong url={id.audioUrl} />
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
               <div className="Mplaying">
                 {song.songName.map(id => {

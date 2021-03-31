@@ -272,6 +272,10 @@ form button {
   background-color: rgb(34, 31, 31);
   height: 100%;
 }
+.M-wholes {
+  background-color: rgb(34, 31, 31);
+  height: 100vh;
+}
 .plm {
   margin: 10px;
   display: grid;
