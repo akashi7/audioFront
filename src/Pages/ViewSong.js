@@ -56,7 +56,17 @@ export const ViewSong = () => {
                   src={music}
                   className="Mlogo"
                   alt="music" />
+                {song.songName.map(id => {
+                  return (
+                    <div key={id.id} className="M-songss"  >
+                      <p>Song playing : {id.songName}</p>
+                      <p>By : {id.sangBy} </p>
+                      <p>Gerne : {id.genre} </p>
+                    </div>
+                  );
+                })}
               </div>
+
               <div className="Mplaying">
                 {song.songName.map(id => {
                   return (

@@ -339,6 +339,13 @@ form button {
   background-color: darkgoldenrod;
   color: darkolivegreen;
 }
+.M-songss {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: whitesmoke;
+}
 .M-song {
   padding: 10px;
   margin: 5px;
