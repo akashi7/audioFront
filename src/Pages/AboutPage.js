@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { MobileAboutHeader, MobileFooter, MachineFooter, MachineHeaderTwo } from '../Components/MobileFooter';
 
-import me from '../Images/me.JPG';
+import me from '../Images/pp.jpg';
 import instagram from '../Images/instagram.png';
 import linkedIn from '../Images/linkedin.png';
+
+import about from '../Images/about.png';
 
 export const AboutPage = () => {
   const history = useHistory();
   const token = localStorage.getItem('token');
-  const view = window.screen.width;
 
-  const [state, setState] = useState({
-    viewSize: ""
-  });
 
 
   useEffect(() => {
@@ -21,90 +18,54 @@ export const AboutPage = () => {
       if (!token) {
         history.push('/');
       }
-      else if (view <= 480) {
-        setState({ ...state, viewSize: 'mobile' });
-        document.title = "Mobile | about";
-      }
       else {
         document.title = "About";
       }
     })();
+    //eslint-disable-next-line
   }, []);
+
+  const goBack = () => {
+    history.goBack();
+  };
+
+
   return (
+    <div>
+      <div className="homePage">
+        <div className="cardHeaderui"><img src={about} alt="about" width="20px" />   About</div>
+        <div style={{ textAlign: "center", padding: 10 }}>
+          <p className="opqw" onClick={goBack} ><b> &larr;Go</b> Back</p>
+          <br></br>
+          <p className="foo">About  App</p>
+          <p>App for Fun for streaming Music online
+            Not fancy but just there.
+            Will be adding new Features.
+          </p>
+          <p className="foo">Developer</p>
+          <p>Name is Akashi</p>
+          <img src={me} alt="me" className="me" />
+        </div>
+        <div className="follow">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/akashi__chris/">
+                <img src={instagram} className="social" alt="Insta" />
+              </a>
 
-    <>
-      {state.viewSize ? (
-        <>
-          <MobileAboutHeader />
-          <div className="ab">
-            <div className="aboutContent">
-              <div className="aui">
-                <p className="foo">About  App</p>
-                <p>Just another App for Fun for playing Music
-                Not fancy but cool in some way
-                </p>
-                <p className="foo">About Developer</p>
-                <p> Akashi</p>
-                <img src={me} alt="me" className="me" />
-              </div>
-              <div className="follow">
-                <ul>
-                  <li>
-                    <a href="https://www.instagram.com/akashi__chris/">
-                      <img src={instagram} className="social" alt="Insta" />
-                    </a>
+              Instagram
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/nseko-christian-b505b7201/">
+                <img src={linkedIn} className="social" alt="In" />
+              </a>
+              LinkedIn
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-                      Instagram
-                    </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/nseko-christian-b505b7201/">
-                      <img src={linkedIn} className="social" alt="In" />
-                    </a>
-
-                      LinkedIn
-                    </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <MobileFooter />
-        </>
-      ) : (
-          <>
-            <div className="abi">
-              <MachineHeaderTwo />
-              <div style={{ textAlign: "center", padding: 10 }}>
-                <p className="foo">About  App</p>
-                <p>Just another App for Fun for playing Music
-                Not fancy but cool in some way
-                </p>
-                <p className="foo">About Developer</p>
-                <p>Name is Akashi</p>
-                <img src={me} alt="me" className="me" />
-              </div>
-              <div className="follow">
-                <ul>
-                  <li>
-                    <a href="https://www.instagram.com/akashi__chris/">
-                      <img src={instagram} className="social" alt="Insta" />
-                    </a>
-
-                      Instagram
-                    </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/nseko-christian-b505b7201/">
-                      <img src={linkedIn} className="social" alt="In" />
-                    </a>
-
-                      LinkedIn
-                    </li>
-                </ul>
-              </div>
-            </div>
-            <MachineFooter />
-          </>
-        )}
-    </>
 
   );
 };

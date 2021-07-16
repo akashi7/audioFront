@@ -16,6 +16,7 @@ export const Admindash = () => {
         await viewAll(token);
       }
     })();
+    //eslint-disable-next-line
   }, []);
   return (
     <div>

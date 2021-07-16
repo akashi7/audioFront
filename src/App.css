@@ -10,6 +10,9 @@
   padding: 7px;
   margin: 5px;
 }
+.back {
+  background-color: red;
+}
 .sesong {
   background-color: red;
 }
@@ -43,7 +46,9 @@
   height: 100vh;
   display: flex;
   width: 100%;
-  background-color: #173e43;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url('./Images/black-background-costume-dark-mode.jpg');
   justify-content: center;
   flex-direction: column;
 }
@@ -57,29 +62,146 @@
   border-radius: 5px;
 }
 .homePage {
-  background-image: url('./Images/Beautiful-Norway.jpg');
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  position: relative;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 25vw;
+  transform: translate(-50%, -50%);
+}
+.werty {
+  display: grid;
+  grid-template-areas: 'left right';
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
+}
+.abop {
+  margin-top: 50px;
+  text-transform: capitalize;
+}
+.Mabout {
+  grid-area: left;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  width: 25vw;
+  margin-left: 300px;
+  margin-top: 300px;
+  background-color: #f72a34;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.Mabouts {
+  grid-area: right;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-left: 300px;
+  width: 25vw;
+  margin-top: 300px;
+  background-color: #f7c52a;
+  transform: translate(-50%, -50%);
+}
+.homePages {
+  grid-area: left;
+  margin-top: 90px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  transform: skewY(4deg);
+  background-color: white;
+  width: 25vw;
+  margin-left: 150px;
+  height: 350px;
+}
+.UT {
+  margin-top: 20px;
+  height: 250px;
+  padding: 1px;
+}
+.qwe {
+  height: 250px;
+  overflow-y: scroll;
+}
+.UT input {
+  border: none;
+  padding: 0.5rem 0.1rem;
   width: 100%;
+  border-radius: 2px;
+  border-bottom: 1px solid #eee;
+  transition: all 0.5s;
+  margin: 5px;
+}
+.kojt {
+  grid-area: right;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: white;
+  width: 25vw;
+  height: 500px;
+}
+.qw {
+  grid-area: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  transform: skewY(-4deg);
+  background-color: white;
+  width: 25vw;
+  height: fit-content;
+  margin-top: 90px;
+  height: 350px;
 }
 .bt {
-  margin-left: 0px;
-  margin-top: 16px;
-  width: 88%;
-}
-form {
-  color: white;
-  border: 1px solid black;
+  margin-top: 10px;
+  background: #f7c52a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-form {
-  text-align: center;
-  padding: 10px;
+.btk {
+  margin-top: 20px;
+  background: #f7c52a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.bts {
+  margin-top: 10px;
+  background: #f7c52a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.jk {
+  font-size: 0.9rem;
+  color: white;
+}
+.jks {
+  font-size: 0.9rem;
+  color: #f7c52a;
+}
+.jks:hover {
+  font-size: 0.9rem;
+  color: #f7c52a;
+  cursor: pointer;
+}
+.st {
+  display: flex;
+  flex-direction: row;
 }
 
 .errors {
@@ -89,33 +211,107 @@ form {
   color: white;
 }
 
-form input {
-  color: white;
-  letter-spacing: 1px;
-  border: none;
-  border-bottom: 1px solid #999;
-  display: block;
-  width: 95%;
-  padding: 15px;
-  background: none;
-  font-size: 15px;
-  margin: 5px;
-  text-overflow: ellipsis;
-}
-form input:focus {
-  outline: none;
-}
-form input::placeholder {
-  color: white;
-}
-form button {
-  margin-top: 5px;
-  width: 100%;
-  padding: 7px;
-  margin-bottom: 5px;
-}
 .forms {
+  margin-top: 2rem;
+}
+.names {
+  margin-top: 0px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.Ko {
+  display: grid;
+  grid-template-areas: 'left right center';
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.choosefile {
+  font-size: 20px;
+}
+.choosefiles {
+  font-size: 20px;
+}
+.UT label {
+  margin: 3px;
+  text-align: center;
+  font-size: 18px;
+}
+.ft {
+  margin-top: 0px;
+}
+.formss {
+  margin-top: 0rem;
+  height: 200px;
+}
+.cardHeader {
+  background: #f7c52a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transform: skewY(-4deg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  top: -1rem;
+  left: -0.75rem;
+}
+.cardHeaders {
+  background: #f7c52a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transform: skewY(-4deg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  top: -2rem;
+  left: -0.75rem;
+}
+.cardHeaderss {
+  background: #f7c52a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transform: skewY(-4deg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 400px;
+  margin-top: 70px;
+}
+.cardHeaderx {
+  background: #f7c52a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transform: skewY(-4deg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 400px;
+  margin-top: 70px;
+}
+
+.op {
+  margin-bottom: 1rem;
+}
+.jb {
+  border: none;
+  padding: 0.5rem 0.1rem;
+  width: 100%;
+  border-radius: 2px;
+  border-bottom: 1px solid black;
+  transition: all 0.5s;
+  margin: 5px;
+}
+.jb:focus {
+  border-bottom: 1px solid #ccc;
+  border: none;
 }
 .playlogo {
   width: 20px;
@@ -135,8 +331,18 @@ form button {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 0 1rem;
+  margin: 0rem 2rem 0rem;
   list-style-type: none;
+}
+.nav-link {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1 1rem;
+  list-style-type: none;
+}
+.nav-link li {
+  padding: 2px 8px;
 }
 .nav-links li {
   padding: 2px 5px;
@@ -146,6 +352,28 @@ form button {
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
+}
+.ssonglist {
+  background-color: black;
+  position: fixed;
+  transform: translateX(20rem);
+  transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
+  height: fit-content;
+  list-style-type: none;
+  z-index: 1000;
+  top: 55px;
+  padding: 10px;
+}
+.songd {
+  list-style-type: none;
+  padding: 5px;
+}
+.songd li {
+  align-items: center;
+}
+.songd li:hover {
+  color: goldenrod;
+  cursor: pointer;
 }
 .mobFooter ul li {
   display: flex;
@@ -183,10 +411,17 @@ form button {
 .dur {
   margin-left: 180px;
 }
+.tyui {
+  display: flex;
+  flex-direction: row;
+}
 
 .controls {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
-  padding: 10px;
+  padding: 2px;
+  justify-content: space-around;
 }
 .progressBar {
   margin: 10px;
@@ -211,11 +446,12 @@ form button {
   height: 81vh;
 }
 .controlss {
-  margin-top: 199.9px;
+  width: 90%;
+  margin-left: 25px;
 }
 .songplaying {
   text-align: center;
-  color: white;
+  color: black;
 }
 .social {
   width: 25px;
@@ -269,17 +505,25 @@ form button {
   height: 80vh;
 }
 .M-whole {
-  background-color: rgb(34, 31, 31);
-  height: 100%;
+  background-image: url('./Images/background.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.c {
+  background-image: url('./Images/black-background-costume-dark-mode.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .M-wholes {
-  background-color: rgb(34, 31, 31);
+  background-image: url('./Images/background.jpg');
   height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .plm {
   margin: 10px;
-  display: grid;
-  grid-template-areas: 'left right';
 }
 .not {
   height: 95vh;
@@ -290,8 +534,7 @@ form button {
   grid-area: 'left';
   text-align: center;
   padding: 10px;
-  border: 2px solid darkgoldenrod;
-  background-image: url('./Images/7ec111864f7539dce5362ccf235b61a4--app-logo-app-icon-logo.jpg');
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 10px;
   height: 550px;
 }
@@ -301,18 +544,11 @@ form button {
   justify-content: space-between;
   padding: 10px;
   box-shadow: 3px 3px 10px #888;
-  background-color: darkgoldenrod;
+  /* background: linear-gradient(to right, rgb(224, 226, 208), #9c957f); */
+  position: sticky;
+  text-transform: uppercase;
 }
-.M-allSo {
-  display: flex;
-  text-align: center;
-  color: whitesmoke;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin: 20px;
-  overflow-y: auto;
-}
+
 .M-allSos {
   display: flex;
   text-align: center;
@@ -333,18 +569,22 @@ form button {
   height: 100vh;
 }
 .M-songs {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 10px;
   margin: 5px;
   border-radius: 10px;
-  background-color: darkgoldenrod;
+  background-color: whitesmoke;
   color: darkolivegreen;
 }
 .M-songss {
   padding: 10px;
   margin: 5px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: whitesmoke;
+  color: black;
+  width: 50%;
+  margin-left: 297px;
+  align-items: center;
+  text-align: center;
 }
 .M-song {
   padding: 10px;
@@ -380,7 +620,12 @@ form button {
   margin-top: -190px;
 }
 .Micons {
-  width: 170px;
+  width: 200px;
+  margin-left: 10px;
+}
+.Micon {
+  width: 50px;
+  border-radius: 30px;
 }
 .sce {
   color: white;
@@ -388,11 +633,16 @@ form button {
   text-align: center;
 }
 .Mty {
-  background-color: rgb(34, 31, 31);
-  height: 95vh;
+  background-image: url('./Images/background.jpg');
+  height: 100vh;
+  width: 100%;
 }
 .back:hover {
   cursor: pointer;
+}
+.iu:hover {
+  cursor: pointer;
+  border-bottom: 1px solid gold;
 }
 .songPlaying ul li:hover {
   cursor: pointer;
@@ -407,18 +657,191 @@ form button {
   color: gold;
 }
 
-@media only screen and (min-width: 480px) {
-  form {
-    color: white;
-    border: 1px solid black;
-    margin: 10px;
-    width: 40%;
-    padding: 5px;
-    margin-left: 350px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
+@media only screen and (max-width: 480px) {
+  .homePage {
+    width: 80%;
+    margin: 5px;
   }
-  form p:hover {
-    cursor: pointer;
+  .jb {
+    width: 100%;
+    margin: 2px;
   }
+  .c {
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: contain;
+  }
+  .splash {
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: contain;
+  }
+  .M-whole {
+    height: 100vh;
+    width: 100%;
+  }
+  .MachineHeader {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .nav-links {
+    margin: 0%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .werty {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .Mabout {
+    transform: translate(2%, 20%);
+    margin-left: 0%;
+    margin-top: 0%;
+    margin: 20px;
+    width: 100%;
+  }
+  .Mabouts {
+    transform: translate(2%, 20%);
+    margin-left: 0%;
+    margin-top: 0%;
+    margin: 20px;
+    width: 100%;
+  }
+  .ko {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+  }
+  .Mty {
+    width: 100%;
+    height: 100%;
+  }
+  .homePages {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2px;
+    margin-left: 0px;
+    text-align: center;
+    transform: none;
+  }
+  .kojt {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 360px;
+    margin-top: 5px;
+    transform: skewY(4deg);
+  }
+  .qw {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .qwe {
+    width: 100%;
+  }
+  .nav-link {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .nav-link li {
+    margin: auto;
+    padding: auto;
+  }
+  .ssonglist {
+    transform: translateX(0.1rem);
+    width: 250px;
+    margin-top: 20px;
+  }
+  .M-wholes {
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: contain;
+  }
+  .plm {
+    width: 100%;
+    margin: 0%;
+    padding: 2px;
+  }
+  .Mplay {
+    margin: 5px;
+  }
+  .M-songss {
+    margin-left: 0%;
+    width: 100%;
+  }
+  .controlss {
+    margin-left: 0%;
+    width: 100%;
+  }
+  .erw {
+    margin-left: 210px;
+    top: -25px;
+    position: relative;
+  }
+  .ty {
+    margin-left: -25px;
+    position: relative;
+  }
+  .progressBar {
+    margin-top: 40px;
+    margin-left: 3px;
+  }
+  .Micons {
+    margin-left: 1px;
+  }
+  .Miconst {
+    margin-left: 1px;
+    width: 90px;
+  }
+}
+
+.popy:hover {
+  cursor: pointer;
+}
+.Miconst {
+  margin-left: 50px;
+  width: 140px;
+}
+.abuy {
+  text-transform: none;
+  background-color: #f72a34;
+  padding: 5px;
+  transform: skewY(-7deg);
+}
+.abuy:hover {
+  cursor: pointer;
+}
+.opqw {
+  margin-top: 30px;
+  font-size: 20px;
+  border-bottom: 1px solid #f7c52a;
+  background-color: #f7c52a;
+  padding: 5px;
+  border-radius: 10px;
+  color: whitesmoke;
+}
+.opqw:hover {
+  cursor: pointer;
+}
+.cardHeaderui {
+  background: #f72a34;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transform: skewY(-4deg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  color: white;
+  position: absolute;
+  top: -1rem;
+  left: -0.75rem;
 }

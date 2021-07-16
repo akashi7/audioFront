@@ -40,6 +40,7 @@ export const SearchSongs = () => {
 
   useEffect(() => {
     getToken();
+    //eslint-disable-next-line
   }, []);
 
   const handleSearch = async (e) => {

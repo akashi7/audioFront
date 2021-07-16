@@ -11,6 +11,7 @@ export const SplashScreen = () => {
     setTimeout(() => {
       history.push('/home');
     }, 5000);
+    //eslint-disable-next-line
   }, []);
 
   return (

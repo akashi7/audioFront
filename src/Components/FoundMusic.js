@@ -21,6 +21,7 @@ export const FoundMusic = ({ songList }) => {
 
   useEffect(() => {
     windowSize();
+    //eslint-disable-next-line
   }, []);
 
 

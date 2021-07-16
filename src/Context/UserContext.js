@@ -15,6 +15,13 @@ const initialState = {
   },
   allUsers: {
     Users: []
+  },
+  SearchSongs: [],
+  userSongs: {
+    Yoursongs: []
+  },
+  allPlays: {
+    plays: []
   }
 
 };
@@ -41,10 +48,7 @@ export const UserProvider = ({ children }) => {
     };
     const res = await (await fetch(`${url}/user/allSongs`, config)).json();
     if (res.status === 200) {
-      dispatch({
-        type: 'SONG_LISTS',
-        payload: res.data
-      });
+      dispatch({ type: 'SONG_LISTS', payload: res.data });
     }
     else if (res.status === 401) {
       localStorage.clear();
@@ -62,10 +66,7 @@ export const UserProvider = ({ children }) => {
     };
     const res = await (await fetch(`${url}/user/viewSong?songId=${songId}`, config)).json();
     if (res.status === 200) {
-      dispatch({
-        type: 'VIEW_SONG',
-        payload: res.data
-      });
+      dispatch({ type: 'VIEW_SONG', payload: res.data });
     }
 
     else if (res.status === 401) {
@@ -84,10 +85,7 @@ export const UserProvider = ({ children }) => {
     };
     const res = await (await fetch(`${url}/user/viewProfile`, config)).json();
     if (res.status === 200) {
-      dispatch({
-        type: 'PROFILE',
-        payload: res.data
-      });
+      dispatch({ type: 'PROFILE', payload: res.data });
     }
     else if (res.status === 401) {
       localStorage.clear();
@@ -104,10 +102,62 @@ export const UserProvider = ({ children }) => {
     };
     const res = await (await fetch(`${url}/admin/all`, config)).json();
     if (res.status === 200) {
+      dispatch({ type: 'ALL', payload: res.data });
+    }
+    else if (res.status === 401) {
+      localStorage.clear();
+      history.push('/');
+    }
+  };
+
+  const SearchAllSongs = async (token) => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const res = await (await fetch(`${url}/user/allKSongs`, config)).json();
+
+    if (res.status === 200) {
       dispatch({
-        type: 'ALL',
+        type: 'K_SONGS',
         payload: res.data
       });
+    }
+    else if (res.status === 401) {
+      localStorage.clear();
+      history.push('/');
+    }
+  };
+
+  const userAllSongs = async (token) => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const res = await (await fetch(`${url}/user/userSongs`, config)).json();
+    if (res.status === 200) {
+      dispatch({ type: 'URSONGS', payload: res.data });
+    }
+    else if (res.status === 401) {
+      localStorage.clear();
+      history.push('/');
+    }
+  };
+
+  const viewPlays = async (token) => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const res = await (await fetch(`${url}/user/plays`, config)).json();
+    if (res.status === 200) {
+      dispatch({ type: 'PLASONGS', payload: res.data });
     }
     else if (res.status === 401) {
       localStorage.clear();
@@ -118,10 +168,8 @@ export const UserProvider = ({ children }) => {
 
 
 
-
-
   return (
-    <UserContext.Provider value={{ ...state, viewAllSongs, viewSong, profile, viewAll }}>
+    <UserContext.Provider value={{ ...state, viewAllSongs, viewSong, profile, viewAll, SearchAllSongs, viewPlays, userAllSongs }}>
       {children}
     </UserContext.Provider>
 

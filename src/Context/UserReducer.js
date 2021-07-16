@@ -24,6 +24,22 @@ export const UserReducer = (state, action) => {
         ...state,
         allUsers: action.payload
       };
+    case 'K_SONGS':
+      return {
+        ...state,
+        SearchSongs: action.payload
+      };
+    case 'URSONGS':
+      return {
+        ...state,
+        userSongs: action.payload
+      };
+    case 'PLASONGS':
+      return {
+        ...state,
+        allPlays: action.payload
+
+      };
     default:
       return null;
   }

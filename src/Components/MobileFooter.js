@@ -1,16 +1,18 @@
+import { useContext, useEffect, useState } from 'react';
 import userLogo from '../Images/user.png';
 import { useHistory } from 'react-router-dom';
 import Home from '../Images/home.png';
-
-import about from '../Images/about_2.png';
+import { UserContext } from '../Context/UserContext';
 import logOut from '../Images/logout.png';
 import search from '../Images/search.png';
+import icon from '../Images/headphones.png';
 
 
 export const MobileFooter = () => {
 
-  const history = useHistory();
 
+
+  const history = useHistory();
 
   const dashBoard = () => {
     history.push('/dashboard');
@@ -52,8 +54,58 @@ export const MachineFooter = () => {
     </div>
   );
 };
-export const MachineHeader = () => {
+export const MachineHeader = ({ SearchSongs }) => {
+
+
+  const token = localStorage.getItem('token');
+
+  const { userProfile, profile } = useContext(UserContext);
+
+
+
+
+
+  const [state, setState] = useState({
+    songs: []
+  });
+
+
+  useEffect(() => {
+    (async () => {
+      await profile(token);
+    })();
+    //eslint-disable-next-line
+  }, []);
+
+
+  const setSearch = (text) => {
+
+    if (!text) {
+      setState({ ...state, songs: [] });
+    }
+    else {
+      let matches = SearchSongs.filter(({ songName }) => {
+        const regex = new RegExp(`${text}`, 'gi');
+        return songName.match(regex);
+      });
+      setState({ ...state, songs: matches });
+    }
+
+  };
+
+
+
+
+
   const history = useHistory();
+
+
+  const goToSong = (songName, id) => {
+    localStorage.setItem('songId', id);
+    history.push(`/playsong/${songName}`);
+    window.location.reload();
+  };
+
   const dashBoard = () => {
     history.push('/dashboard');
   };
@@ -63,14 +115,40 @@ export const MachineHeader = () => {
   };
   return (
     <div className="MachineHeader" style={{ color: "white" }}>
-      <div className="back" onClick={dashBoard}>
-        AkashiAudio
+      <ul className="nav-links">
+        <li onClick={dashBoard} className="iu" ><b>Akashi</b> <img src={icon} alt="rrr" width="20px" />  Audio</li>
+        <li onClick={() => history.push('/about')} ><p className="abuy"> <b>About</b></p></li>
+      </ul>
+
+      <ul className="nav-links ">
+        <input
+          placeholder="Search song name"
+          onChange={(e) => setSearch(e.target.value)}
+          className="jb"
+        />
+      </ul>
+
+      {(state.songs.length !== 0) ? <div className="ssonglist" >
+        {state.songs && state.songs.map(({ songName, id, sangBy }) => {
+          return (
+            <ul key={id} className="songd" >
+              <li onClick={() => goToSong(songName, id)} >{songName} by :{sangBy} </li>
+            </ul>
+          );
+        })}
       </div>
+        : ""}
+
       <div className="songPlaying">
         <ul className="nav-links">
-          <li onClick={() => history.push('/search')}><img src={search} alt="search" width='30' /></li>
-          <li onClick={() => history.push('/profile')}><img src={userLogo} alt="profile" width='30' /></li>
-          <li onClick={logingOut}><img src={logOut} alt="log out" width='30' /></li>
+          {userProfile.user.map(({ id, username, pic }) => {
+            return (
+              <ul key={id} className="nav-link">
+                <li onClick={() => history.push('/profile')} style={{ borderBottom: "1px solid yellow" }} ><b>{username}</b></li>
+                <li onClick={logingOut}>Log Out</li>
+              </ul>
+            );
+          })}
         </ul>
       </div>
     </div>

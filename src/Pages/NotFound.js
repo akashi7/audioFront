@@ -25,6 +25,7 @@ export const NotFound = () => {
   }
   useEffect(() => {
     getToken();
+    //eslint-disable-next-line
   }, []);
   return (
     <>
@@ -39,8 +40,8 @@ export const NotFound = () => {
         <>
           <div className='not'>
             <MachineHeader />
-             Song not found
-           </div>
+            Song not found
+          </div>
           <MachineFooter />
         </>
       )}

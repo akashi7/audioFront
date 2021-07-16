@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import logo from '../Images/headphones.png';
 
 
 export const HomePage = () => {
@@ -89,66 +90,74 @@ export const HomePage = () => {
   };
 
   return (
-    <>
+    <div className="c">
       <div className="homePage" >
         <div className="forms">
-          {state.isSignForm ? <form onSubmit={handleSignUp}>
-            {state.errors ? <div className="errors">
-              {state.errors}
-            </div>
-              : <p style={{ color: 'blueviolet' }}>Sign Up</p>}
-
-            <input
-              placeholder="Username"
-              type="text"
-              required
-              onChange={e => setState({ ...state, username: e.target.value })}
-            />
-            <input
-              placeholder="Password"
-              type="password"
-              required
-              onChange={e => setState({ ...state, password: e.target.value })} />
-            <input
-              placeholder="Confirm password"
-              type="password"
-              required
-              onChange={e => setState({ ...state, confirmPassword: e.target.value })}
-            />
-            {state.isLoading ? <button type="submit" className="bt" >Loading.....</button>
-              : <button className="bt" type="submit">Sign Up</button>}
-            <p >have account?</p>
-            <p onClick={() => setState({ ...state, isSignForm: false })} style={{ color: 'blueviolet' }}>Sign In</p>
-          </form>
-            : <form onSubmit={handleLogin}>
+          {state.isSignForm ?
+            <form onSubmit={handleSignUp}>
               {state.errors ? <div className="errors">
                 {state.errors}
               </div>
-                : <p style={{ color: 'blueviolet' }}>Sign In</p>}
-
+                : <div className="cardHeader">
+                  <img alt="iimage" src={logo} width="20px" />sign Up</div>}
               <input
                 placeholder="Username"
                 type="text"
-                onChange={e => setState({ ...state, username: e.target.value })}
                 required
+                className="jb"
+                onChange={e => setState({ ...state, username: e.target.value })}
               />
               <input
                 placeholder="Password"
                 type="password"
                 required
+                className="jb"
+                onChange={e => setState({ ...state, password: e.target.value })} />
+
+              <input
+                placeholder="Confirm password"
+                type="password"
+                required
+                className="jb"
+                onChange={e => setState({ ...state, confirmPassword: e.target.value })}
+              />
+
+              {state.isLoading ? <button type="submit" className="bt" >Loading.....</button>
+                : <button className="bt" type="submit">Sign Up</button>}
+              <p className="jk">have account?</p>
+              <p onClick={() => setState({ ...state, isSignForm: false })} className="jks">Sign In</p>
+            </form>
+            : <form onSubmit={handleLogin}>
+              {state.errors ? <div className="errors">
+                {state.errors}
+              </div>
+                : <div className="cardHeader"><img alt="iimage" src={logo} width="20px" />Login</div>}
+              <input
+                placeholder="Username"
+                type="text"
+                className="jb"
+                onChange={e => setState({ ...state, username: e.target.value })}
+                required
+
+              />
+              <input
+                placeholder="Password"
+                type="password"
+                required
+                className="jb"
                 onChange={e => setState({ ...state, password: e.target.value })}
               />
+
               {state.isLoading ? <button type="submit" className="bt" >Loading.....</button>
                 : <button className="bt" type="submit">Log In</button>}
 
-              <p >Do not have account?</p>
-              <p onClick={() => setState({ ...state, isSignForm: true })} style={{ color: 'blueviolet' }}>Sign Up</p>
+              <p className="jk" >Do not have account?</p>
+              <p onClick={() => setState({ ...state, isSignForm: true })} className="jks">Sign Up</p>
             </form>}
-
         </div>
 
       </div>
-    </>
+    </div>
 
   );
 };
