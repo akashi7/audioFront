@@ -165,7 +165,7 @@ export const Profile = () => {
               <div key={id} className="formss">
                 {pic ? <img alt={username} className="Micons" src={pic} /> : <img src={icon} className="Miconst" alt='default' />}
                 <p className="names" >{username}</p>
-                {uploads ? <p>{uploads}</p> : <p>0 uploads</p>}
+                {uploads ? <p>{uploads} uploads</p> : <p>0 uploads</p>}
                 <br></br>
                 <form onSubmit={(e) => UpdatePic(e)} className="ft">
                   <input
