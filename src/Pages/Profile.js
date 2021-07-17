@@ -10,9 +10,9 @@ import icon from '../Images/default-avatar-profile-image-vector-social-media-use
 
 export const Profile = () => {
 
-  let url = `https://audiolive.herokuapp.com`;
+  let url;
 
-  // process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = ``;
+  process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
 
   const { userProfile, profile, SearchSongs, SearchAllSongs, userSongs, userAllSongs } = useContext(UserContext);
 
@@ -226,17 +226,20 @@ export const Profile = () => {
             <input
               placeholder="Song Name"
               required
+              className="jb"
               onChange={(e) => setState({ ...state, songName: e.target.value })}
             />
 
             <input
               placeholder="Gerne"
               required
+              className="jb"
               onChange={(e) => setState({ ...state, genre: e.target.value })}
             />
             <input
               placeholder="Sang By"
               required
+              className="jb"
               onChange={(e) => setState({ ...state, sangBy: e.target.value })}
             />
             {state.uploadedCover ? <p>Cover file : {state.uploadedCover}</p> : ""}

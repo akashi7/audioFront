@@ -31,9 +31,9 @@ export const UserContext = createContext(initialState);
 
 export const UserProvider = ({ children }) => {
 
-  let url = `https://audiolive.herokuapp.com`;
+  let url;
 
-  // process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = ``;
+  process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
 
   const history = useHistory();
 

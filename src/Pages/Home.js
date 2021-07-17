@@ -5,9 +5,11 @@ import logo from '../Images/headphones.png';
 
 export const HomePage = () => {
 
-  let url = `https://audiolive.herokuapp.com`;
+  let url;
 
-  // process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = ``;
+  process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
+
+
   const history = useHistory();
 
 

@@ -125,15 +125,7 @@
   height: 250px;
   overflow-y: scroll;
 }
-.UT input {
-  border: none;
-  padding: 0.5rem 0.1rem;
-  width: 100%;
-  border-radius: 2px;
-  border-bottom: 1px solid #eee;
-  transition: all 0.5s;
-  margin: 5px;
-}
+
 .kojt {
   grid-area: right;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -414,6 +406,7 @@
 .tyui {
   display: flex;
   flex-direction: row;
+  color: white;
 }
 
 .controls {

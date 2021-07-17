@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom';
 
 export const PlaySong = ({ url }) => {
 
-  let urls = `https://audiolive.herokuapp.com`;
+  let urls;
 
-  // process.env.NODE_ENV === 'development' ? urls = `http://localhost:5000` : urls = ``;
+  process.env.NODE_ENV === "development" ? urls = `http://localhost:5000` : urls = `https://audiolive.herokuapp.com`;
 
   const songId = localStorage.getItem('songId');
   const token = localStorage.getItem('token');
@@ -17,7 +17,7 @@ export const PlaySong = ({ url }) => {
 
   const history = useHistory();
   const durationFunction = (sec) => {
-    return (sec - (sec %= 60)) / 60 + (9 < sec ? ':' : ':0') + ~~sec;
+    return ((sec - (sec %= 60)) / 60) + (9 < sec ? ':' : ':0') + ~~sec;
   };
 
   const [state, setState] = useState({
@@ -59,19 +59,19 @@ export const PlaySong = ({ url }) => {
     setState({ ...state, duration: audio.current.duration });
     if (state.playing) {
       setState({ ...state, playing: false });
-      audio.current.pause();
+      await audio.current.pause();
     }
-    else if (!(state.playing)) {
-      audio.current.play();
-      await numberOfPlays(songId, token);
+    else if ((!(state.playing)) && (state.duration)) {
       setState({ ...state, playing: true });
+      await audio.current.play();
+      await numberOfPlays(songId, token);
     }
   };
 
 
 
   const handleProgess = (e) => {
-    let time = ((e.target.value) * state.duration) / 100;
+    let time = (((e.target.value) * state.duration) / 100);
     setState({ ...state, currentTime: time });
     audio.current.currentTime = time;
   };
@@ -89,7 +89,9 @@ export const PlaySong = ({ url }) => {
         type="range"
         className="progressBar"
         onChange={handleProgess}
-        value={(state.currentTime * 100) / state.duration}
+        max={30}
+        min={0}
+        value={((state.currentTime * 100) / (state.duration))}
       />
       <div className="controls">
         <span className="tyui">
@@ -107,12 +109,8 @@ export const PlaySong = ({ url }) => {
               alt="play music"
               onClick={() => { setState({ ...state, playing: true }); toggle(); }} />
         }
-        <span className="tyui">
-          {durationFunction(state.duration)}
-        </span>
-
+        {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">Loading...</span>}
       </div>
-
     </div>
   );
 };
