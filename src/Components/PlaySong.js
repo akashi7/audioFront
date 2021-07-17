@@ -5,7 +5,14 @@ import { useHistory } from 'react-router-dom';
 
 
 
+
+
 export const PlaySong = ({ url }) => {
+
+
+
+
+
 
   let urls;
 
@@ -23,13 +30,33 @@ export const PlaySong = ({ url }) => {
   const [state, setState] = useState({
     playing: false,
     duration: 0,
-    currentTime: 0
+    currentTime: 0,
+    iPhone: false
   });
+
+
 
   const audio = useRef(null);
 
+  const getOperatingSystem = async () => {
+
+    var UserAgent = navigator.userAgent || navigator.vendor;
+
+    if (/windows phone/i.test(UserAgent)) {
+      console.log("windows phone");
+    }
+    else if (/iPad|iPhone|iPod/.test(UserAgent) && !window.MSStream) {
+      setState({ ...state, iPhone: true });
+    }
+
+  };
+
+
+
+
   useEffect(() => {
     (async () => {
+      await getOperatingSystem();
       await audio.current.duration;
       if (audio.current.duration) {
         setState({ ...state, duration: audio.current.duration });
@@ -66,18 +93,39 @@ export const PlaySong = ({ url }) => {
 
 
   const toggle = async () => {
-    if (state.playing) {
-      setState({ ...state, playing: false });
-      await audio.current.pause();
-    }
-    else if ((!(state.playing)) && (state.duration)) {
-      setState({ ...state, playing: true });
-      await audio.current.play();
-      await numberOfPlays(songId, token);
+
+    if (state.iPhone === true) {
+
+      setState({ ...state, duration: audio.current.duration });
+
+      if (state.playing) {
+        setState({ ...state, playing: false });
+        await audio.current.pause();
+      }
+      else if ((!(state.playing)) && (state.duration)) {
+        setState({ ...state, playing: true });
+        await audio.current.play();
+        await numberOfPlays(songId, token);
+      }
+      else {
+        setState({ ...state, playing: false });
+      }
     }
     else {
-      setState({ ...state, playing: false });
+      if (state.playing) {
+        setState({ ...state, playing: false });
+        await audio.current.pause();
+      }
+      else if ((!(state.playing)) && (state.duration)) {
+        setState({ ...state, playing: true });
+        await audio.current.play();
+        await numberOfPlays(songId, token);
+      }
+      else {
+        setState({ ...state, playing: false });
+      }
     }
+
   };
 
 
@@ -97,7 +145,9 @@ export const PlaySong = ({ url }) => {
         <source src={url} type="audio/mpeg"  ></source>
       </audio>
 
-      {state.duration ? "" : <p style={{ color: "yellow" }}>Loading Song please Wait ....</p>}
+      {(state.duration) && (state.iPhone === false) ? "" : <p style={{ color: "yellow" }}>Loading Song please Wait ....</p>}
+
+
 
       <input
         type="range"
@@ -106,7 +156,10 @@ export const PlaySong = ({ url }) => {
         min="0"
         value={((state.currentTime * 100) / (state.duration))}
       />
+
+
       <div className="controls">
+
         <span className="tyui">
           {durationFunction(state.currentTime)}
         </span>
@@ -124,6 +177,7 @@ export const PlaySong = ({ url }) => {
         }
         {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">Loading...</span>}
       </div>
+      {state.iPhone === true ? <p style={{ color: "yellow" }}>Playing with iPhone</p> : ""}
     </div>
   );
 };
