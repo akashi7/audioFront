@@ -89,6 +89,7 @@ export const PlaySong = ({ url }) => {
         type="range"
         className="progressBar"
         onChange={handleProgess}
+        min="0"
         value={((state.currentTime * 100) / (state.duration))}
       />
       <div className="controls">
