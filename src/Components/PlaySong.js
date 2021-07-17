@@ -107,9 +107,6 @@ export const PlaySong = ({ url }) => {
         await audio.current.play();
         await numberOfPlays(songId, token);
       }
-      else {
-        setState({ ...state, playing: false });
-      }
     }
     else {
       if (state.playing) {
@@ -145,9 +142,10 @@ export const PlaySong = ({ url }) => {
         <source src={url} type="audio/mpeg"  ></source>
       </audio>
 
-      {(state.duration) && (state.iPhone === false) ? "" : <p style={{ color: "yellow" }}>Loading Song please Wait ....</p>}
 
-
+      {state.iPhone === false ? (
+        <div> {state.duration ? "" : <p style={{ color: "yellow" }}>Loading Song please Wait ....</p>} </div>
+      ) : ""}
 
       <input
         type="range"
@@ -175,7 +173,7 @@ export const PlaySong = ({ url }) => {
               alt="play music"
               onClick={() => { setState({ ...state, playing: true }); toggle(); }} />
         }
-        {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">Loading...</span>}
+        {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">00:00</span>}
       </div>
       {state.iPhone === true ? <p style={{ color: "yellow" }}>Playing with iPhone</p> : ""}
     </div>
