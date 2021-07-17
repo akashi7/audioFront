@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom';
 
 export const PlaySong = ({ url }) => {
 
-  let urlss;
+  let web;
 
-  process.env.NODE_ENV === 'development' ? urlss = `http://localhost:5000` : urlss = `https://audiolive.herokuapp.com`;
+  process.env.NODE_ENV === 'development' ? web = `http://localhost:5000` : web = `https://audiolive.herokuapp.com`;
 
   const songId = localStorage.getItem('songId');
   const token = localStorage.getItem('token');
@@ -39,7 +39,7 @@ export const PlaySong = ({ url }) => {
     };
 
     try {
-      const res = await (await fetch(`${urlss}/user/view?songId=${songId}`, config)).json();
+      const res = await (await fetch(`${web}/user/view?songId=${songId}`, config)).json();
       if (res.status === 200) {
         console.log("OKK..");
       }
