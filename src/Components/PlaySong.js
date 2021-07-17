@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom';
 
 export const PlaySong = ({ url }) => {
 
-  let urls;
+  let urls = `https://audiolive.herokuapp.com`;
 
-  process.env.NODE_ENV === 'development' ? urls = `http://localhost:5000` : urls = `https://audiolive.herokuapp.com`;
+  // process.env.NODE_ENV === 'development' ? urls = `http://localhost:5000` : urls = ``;
 
   const songId = localStorage.getItem('songId');
   const token = localStorage.getItem('token');

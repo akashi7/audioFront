@@ -10,9 +10,9 @@ import icon from '../Images/default-avatar-profile-image-vector-social-media-use
 
 export const Profile = () => {
 
-  let url;
+  let url = `https://audiolive.herokuapp.com`;
 
-  process.env.NODE_ENV === 'development' ? url = `http://localhost:5000` : url = `https://audiolive.herokuapp.com`;
+  // process.env.NODE_ENV === "development" ? url = `http://localhost:5000` : url = ``;
 
   const { userProfile, profile, SearchSongs, SearchAllSongs, userSongs, userAllSongs } = useContext(UserContext);
 
