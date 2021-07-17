@@ -229,14 +229,14 @@ export const Profile = () => {
               className="jb"
               onChange={(e) => setState({ ...state, songName: e.target.value })}
             />
-            <label>Gerne</label>
+            <p >Gerne</p>
             <input
               placeholder="Gerne"
               required
               className="jb"
               onChange={(e) => setState({ ...state, genre: e.target.value })}
             />
-            <label>Sang by</label>
+            <p >Sang by</p>
             <input
               placeholder="Sang By"
               required
