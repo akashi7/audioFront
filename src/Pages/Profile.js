@@ -222,20 +222,21 @@ export const Profile = () => {
             >
               CLICK HERE TO UPLOAD FILE
             </label>
-
+            <p style={{ marginTop: "3px" }}>Song name</p>
             <input
               placeholder="Song Name"
               required
               className="jb"
               onChange={(e) => setState({ ...state, songName: e.target.value })}
             />
-
+            <label>Gerne</label>
             <input
               placeholder="Gerne"
               required
               className="jb"
               onChange={(e) => setState({ ...state, genre: e.target.value })}
             />
+            <label>Sang by</label>
             <input
               placeholder="Sang By"
               required
