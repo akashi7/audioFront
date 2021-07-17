@@ -10,7 +10,6 @@ import { Profile } from './Pages/Profile';
 import { Admindash } from './Pages/Admindash';
 import { NotFound } from './Pages/NotFound';
 import { SearchSongs } from './Pages/SearchSongs';
-import Stream from './Pages/Stream';
 
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
           <Route path="/admin" component={Admindash} exact />
           <Route path="/notFound" component={NotFound} exact />
           <Route path="/search" component={SearchSongs} exact />
-          <Route path="/s" component={Stream} exact />
         </UserProvider>
       </Switch>
     </Router>
