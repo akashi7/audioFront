@@ -90,12 +90,12 @@ export const PlaySong = ({ url }) => {
 
   return (
     <div className='controlss'>
-      <audio
-        ref={audio}
-        src={url}
+
+      <audio ref={audio}
         onCanPlay={e => setState({ ...state, duration: e.target.duration })}
-        onTimeUpdate={e => setState({ ...state, currentTime: e.target.currentTime })}
-      />
+        onTimeUpdate={e => setState({ ...state, currentTime: e.target.currentTime })}  >
+        <source src={url} type="audio/mpeg"  ></source>
+      </audio>
 
       {state.duration ? "" : <p style={{ color: "yellow" }}>Loading Song please Wait ....</p>}
 
