@@ -9,7 +9,7 @@ export const PlaySong = ({ url }) => {
 
   let urlss;
 
-  process.env.NODE_ENV === 'development' ? urls = `http://localhost:5000` : urlss = `https://audiolive.herokuapp.com`;
+  process.env.NODE_ENV === 'development' ? urlss = `http://localhost:5000` : urlss = `https://audiolive.herokuapp.com`;
 
   const songId = localStorage.getItem('songId');
   const token = localStorage.getItem('token');
