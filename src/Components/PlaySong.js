@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import playButton from '../Images/play.png';
 import pauseButton from '../Images/video-pause-button.png';
 import { useHistory } from 'react-router-dom';
@@ -28,6 +28,16 @@ export const PlaySong = ({ url }) => {
 
   const audio = useRef(null);
 
+  useEffect(() => {
+    (async () => {
+      await audio.current.duration;
+      if (audio.current.duration) {
+        setState({ ...state, duration: audio.current.duration });
+      }
+    })();
+    //eslint-disable-next-line
+  }, []);
+
 
   const numberOfPlays = async (songId, token) => {
 
@@ -56,7 +66,6 @@ export const PlaySong = ({ url }) => {
 
 
   const toggle = async () => {
-    setState({ ...state, duration: audio.current.duration });
     if (state.playing) {
       setState({ ...state, playing: false });
       await audio.current.pause();
@@ -65,6 +74,9 @@ export const PlaySong = ({ url }) => {
       setState({ ...state, playing: true });
       await audio.current.play();
       await numberOfPlays(songId, token);
+    }
+    else {
+      setState({ ...state, playing: false });
     }
   };
 
