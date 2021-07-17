@@ -85,6 +85,8 @@ export const PlaySong = ({ url }) => {
         onTimeUpdate={e => setState({ ...state, currentTime: e.target.currentTime })}
       />
 
+      {state.duration ? "" : <p style={{ color: "yellow" }}>Loading Song please Wait ....</p>}
+
       <input
         type="range"
         className="progressBar"
