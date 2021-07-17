@@ -695,6 +695,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    padding: 10px;
   }
   .Mabout {
     transform: translate(2%, 20%);
@@ -764,14 +765,17 @@
     height: 100vh;
     background-attachment: fixed;
     background-size: contain;
+    background-image: url('./Images/background.jpg');
   }
   .plm {
     width: 100%;
     margin: 0%;
     padding: 2px;
+    height: fit-content;
   }
   .Mplay {
     margin: 5px;
+    height: fit-content;
   }
   .M-songss {
     margin-left: 0%;

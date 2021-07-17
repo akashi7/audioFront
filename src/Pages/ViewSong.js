@@ -55,7 +55,7 @@ export const ViewSong = () => {
           {song.songName.map(id => {
             return (
               <div key={id.id} className="M-songss"  >
-                <p> <b> {id.songName} </b>/ <b> {id.sangBy}</b>  / <b> {id.genre}</b></p>
+                <p style={{ color: "white" }} > <b> {id.songName} </b>/ <b> {id.sangBy}</b>  / <b> {id.genre}</b></p>
                 <PlaySong url={id.audioUrl} />
               </div>
             );
