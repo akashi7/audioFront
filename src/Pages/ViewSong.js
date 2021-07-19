@@ -1,10 +1,11 @@
-import { useEffect, useContext, useState, } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import { MachineHeader } from '../Components/MobileFooter';
 import { PlaySong } from '../Components/PlaySong';
 
 import music from '../Images/wall.jpg';
+
 
 export const ViewSong = () => {
 
@@ -15,7 +16,6 @@ export const ViewSong = () => {
   const history = useHistory();
   const songId = localStorage.getItem('songId');
 
-  ;
 
   const [state, setState] = useState({
     viewSize: '',
@@ -52,11 +52,11 @@ export const ViewSong = () => {
             src={music}
             className="Mlogo"
             alt="music" />
-          {song.songName.map(id => {
+          {song.songName.map(({ id, songName, sangBy, genre, audioUrl }) => {
             return (
-              <div key={id.id} className="M-songss"  >
-                <p style={{ color: "white" }} > <b> {id.songName} </b>/ <b> {id.sangBy}</b>  / <b> {id.genre}</b></p>
-                <PlaySong url={id.audioUrl} />
+              <div key={id} className="M-songss"  >
+                <p style={{ color: "white" }} > <b> {songName} </b>/ <b> {sangBy}</b>  / <b> {genre}</b></p>
+                <PlaySong url={audioUrl} />
               </div>
             );
           })}

@@ -7,11 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
-export const PlaySong = ({ url }) => {
-
-
-
-
+export const PlaySong = ({ url, logo }) => {
 
 
   let urls;
@@ -31,7 +27,8 @@ export const PlaySong = ({ url }) => {
     playing: false,
     duration: 0,
     currentTime: 0,
-    iPhone: false
+    iPhone: false,
+    Android: false
   });
 
 
@@ -48,22 +45,36 @@ export const PlaySong = ({ url }) => {
     else if (/iPad|iPhone|iPod/.test(UserAgent) && !window.MSStream) {
       setState({ ...state, iPhone: true });
     }
+    else if (/android/i.test(UserAgent)) {
+      setState({ ...state, Android: true });
+    }
 
   };
 
 
 
-
+  const Time = state.currentTime;
+  const State = state.playing;
   useEffect(() => {
+
     (async () => {
       await getOperatingSystem();
       await audio.current.duration;
       if (audio.current.duration) {
         setState({ ...state, duration: audio.current.duration });
       }
+      if (state.duration) {
+        if (Time === state.duration) {
+          state.currentTime = 0;
+          document.querySelector('.Mlogo').classList.remove('rotate');
+          setState({ ...state, playing: false });
+        }
+      }
+
+
     })();
     //eslint-disable-next-line
-  }, []);
+  }, [Time, State]);
 
 
   const numberOfPlays = async (songId, token) => {
@@ -111,10 +122,12 @@ export const PlaySong = ({ url }) => {
     else {
       if (state.playing) {
         setState({ ...state, playing: false });
+        document.querySelector('.Mlogo').classList.remove('rotate');
         await audio.current.pause();
       }
       else if ((!(state.playing)) && (state.duration)) {
         setState({ ...state, playing: true });
+        document.querySelector('.Mlogo').classList.add('rotate');
         await audio.current.play();
         await numberOfPlays(songId, token);
       }
@@ -175,7 +188,8 @@ export const PlaySong = ({ url }) => {
         }
         {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">00:00</span>}
       </div>
-      {state.iPhone === true ? <p style={{ color: "yellow" }}>Playing with iPhone</p> : ""}
+      {state.iPhone === true ? <p style={{ color: "yellow" }}>Playing using iPhone</p> : ""}
+      {state.Android === true ? <p style={{ color: "yellow" }}>Playing using Android</p> : ""}
     </div>
   );
 };

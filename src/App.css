@@ -604,6 +604,25 @@
 .Mlogo {
   width: 190px;
   height: 190px;
+  border-radius: 100px;
+}
+.Mlogo.rotate {
+  animation: rotation 5s infinite linear;
+}
+.MlogoB {
+  width: 60px;
+  top: 70px;
+  margin-left: -21px;
+  position: absolute;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .Mplaying {
