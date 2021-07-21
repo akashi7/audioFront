@@ -7,7 +7,7 @@ import linkedIn from '../Images/linkedin.png';
 
 import about from '../Images/about.png';
 
-export const AboutPage = () => {
+export const   AboutPage = () => {
   const history = useHistory();
   const token = localStorage.getItem('token');
 
