@@ -5,7 +5,7 @@ import Home from '../Images/home.png';
 import { UserContext } from '../Context/UserContext';
 import logOut from '../Images/logout.png';
 import search from '../Images/search.png';
-import icon from '../Images/headphones.png';
+import icon from '../Images/wireless_headset.png';
 
 
 export const MobileFooter = () => {

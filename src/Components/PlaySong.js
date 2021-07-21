@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import playButton from '../Images/play.png';
-import pauseButton from '../Images/video-pause-button.png';
+import playButton from '../Images/play-button_2.png';
+import pauseButton from '../Images/pause.png';
 import { useHistory } from 'react-router-dom';
 
 
@@ -188,8 +188,6 @@ export const PlaySong = ({ url, logo }) => {
         }
         {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">00:00</span>}
       </div>
-      {state.iPhone === true ? <p style={{ color: "yellow" }}>Playing using iPhone</p> : ""}
-      {state.Android === true ? <p style={{ color: "yellow" }}>Playing using Android</p> : ""}
     </div>
   );
 };

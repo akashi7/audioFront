@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "headphones.png",
+      "src": "wireless_headset.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "headphones.png",
+      "src": "wireless_headset.png",
       "type": "image/png",
       "sizes": "512x512"
     }

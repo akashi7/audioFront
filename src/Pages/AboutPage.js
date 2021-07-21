@@ -31,9 +31,9 @@ export const AboutPage = () => {
 
 
   return (
-    <div>
-      <div className="homePage">
-        <div className="cardHeaderui"><img src={about} alt="about" width="20px" />   About</div>
+    <div className="yesss">
+      <div className="homePaget">
+        <div className="cardHeader"><img src={about} alt="about" width="20px" />   About</div>
         <div style={{ textAlign: "center", padding: 10 }}>
           <p className="opqw" onClick={goBack} ><b> &larr;Go</b> Back</p>
           <br></br>

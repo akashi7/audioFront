@@ -54,7 +54,7 @@ export const Dashboard = () => {
           </div>
         </div>
         <div className='Mabouts'>
-          <div className="cardHeaderui"><img alt="iimage" src={music} width="20px" />most played</div>
+          <div className="cardHeader"><img alt="iimage" src={music} width="20px" />most played</div>
           <div className="abop" >
             {allPlays.plays.length === 0 ? <p>No plays yet</p>
               : allPlays.plays.map(({ songName, id, plays }) => {
