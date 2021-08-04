@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
-export const PlaySong = ({ url, logo }) => {
+export const PlaySong = ({ url }) => {
 
 
   let urls;
@@ -55,6 +55,7 @@ export const PlaySong = ({ url, logo }) => {
 
   const Time = state.currentTime;
   const State = state.playing;
+
   useEffect(() => {
 
     (async () => {

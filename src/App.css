@@ -68,18 +68,44 @@
   position: relative;
   position: fixed;
   left: 50%;
+  background-color: white;
   top: 50%;
   width: 25vw;
   transform: translate(-50%, -50%);
 }
 .werty {
+  margin: 160px;
   display: grid;
-  grid-template-areas: 'left right';
+  grid-template-areas: 'front left right';
   display: flex;
+  padding: 100px;
 }
 .abop {
-  margin-top: 50px;
   text-transform: capitalize;
+  margin: 20px;
+}
+.goToplay {
+  padding: 3px;
+}
+.goToplay :hover {
+  cursor: pointer;
+}
+.abops {
+  margin: 20px;
+  height: 160px;
+  overflow-y: auto;
+}
+.leftBar {
+  grid-area: 'front';
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 1rem;
+  width: 25vw;
+  margin: 10px;
+  /* background-color: #021214; */
+  /* background-color: #f72a34; */
+  border: 2px solid #f7c52a;
+  color: white;
 }
 .Mabout {
   grid-area: left;
@@ -87,26 +113,30 @@
   border-radius: 4px;
   padding: 1rem;
   width: 25vw;
-  margin-left: 300px;
-  margin-top: 300px;
+  margin: 10px;
   /* background-color: #021214; */
   /* background-color: #f72a34; */
   border: 2px solid #f7c52a;
-  transform: translate(-50%, -50%);
   color: white;
+}
+.ssty {
+  background-color: yellow;
+  transform: skewY(-7deg);
+  padding: 0.75rem 1.5rem;
+  margin-top: -40px;
+  position: absolute;
+  color: black;
 }
 .Mabouts {
   grid-area: right;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 4px;
   padding: 1rem;
-  margin-left: 300px;
   width: 25vw;
-  margin-top: 300px;
+  margin: 10px;
   /* background-color: #f7c52a; */
   border: 2px solid #f7c52a;
   color: white;
-  transform: translate(-50%, -50%);
 }
 .homePages {
   grid-area: left;
@@ -513,7 +543,7 @@
   height: 80vh;
 }
 .M-whole {
-  background-image: url('./Images/FUXLE1.jpg');
+  background-image: url('./Images/bg\ real.jpg');
   height: 100vh;
   background-size: cover;
   background-attachment: fixed;
@@ -524,7 +554,7 @@
   background-size: cover;
 }
 .M-wholes {
-  background-image: url('./Images/FUXLE1.jpg');
+  background-image: url('./Images/bg\ real.jpg');
   height: 100vh;
   background-size: cover;
   background-attachment: fixed;
@@ -658,12 +688,12 @@
   text-align: center;
 }
 .Mty {
-  background-image: url('./Images/FUXLE1.jpg');
+  background-image: url('./Images/bg\ real.jpg');
   height: 100vh;
   width: 100%;
 }
 .yesss {
-  background-image: url('./Images/FUXLE1.jpg');
+  background-image: url('./Images/bg\ real.jpg');
   height: 100vh;
   width: 100%;
 }
@@ -711,7 +741,7 @@
     background-size: cover;
   }
   .M-whole {
-    height: 100vh;
+    height: 100%;
     width: 100%;
   }
   .MachineHeader {
@@ -725,21 +755,29 @@
     display: flex;
     flex-wrap: wrap;
   }
+  .nav-link {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0%;
+  }
   .werty {
+    margin: 0px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 10px;
+    margin-top: 120px;
+  }
+  .leftBar {
+    width: 100%;
   }
   .Mabout {
-    transform: translate(2%, 20%);
     margin-left: 0%;
     margin-top: 0%;
     margin: 20px;
     width: 100%;
   }
   .Mabouts {
-    transform: translate(2%, 20%);
     margin-left: 0%;
     margin-top: 0%;
     margin: 20px;
@@ -799,7 +837,7 @@
     height: 100vh;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url('./Images/FUXLE1.jpg');
+    background-image: url('./Images/bg\ real.jpg');
   }
   .plm {
     width: 100%;
