@@ -112,10 +112,12 @@ export const PlaySong = ({ url }) => {
 
       if (state.playing) {
         setState({ ...state, playing: false });
+        document.querySelector('.Mlogo').classList.remove('rotate');
         await audio.current.pause();
       }
       else if ((!(state.playing)) && (state.duration)) {
         setState({ ...state, playing: true });
+        document.querySelector('.Mlogo').classList.add('rotate');
         await audio.current.play();
         await numberOfPlays(songId, token);
       }
@@ -171,21 +173,24 @@ export const PlaySong = ({ url }) => {
 
 
       <div className="controls">
-
         <span className="tyui">
           {durationFunction(state.currentTime)}
         </span>
         {
-          state.playing ? <img
-            src={pauseButton}
-            className="playbutton"
-            alt="play music"
-            onClick={() => { setState({ ...state, playing: false }); toggle(); }} />
-            : <img
+          state.playing ?
+            <img
+              src={pauseButton}
+              className="playbutton"
+              alt="play music"
+              onClick={() => { setState({ ...state, playing: false }); toggle(); }}
+            />
+            :
+            <img
               src={playButton}
               className="playbutton"
               alt="play music"
-              onClick={() => { setState({ ...state, playing: true }); toggle(); }} />
+              onClick={() => { setState({ ...state, playing: true }); toggle(); }}
+            />
         }
         {state.duration ? <span className="tyui">{durationFunction(state.duration)}</span> : <span className="tyui">00:00</span>}
       </div>
